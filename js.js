@@ -119,58 +119,87 @@ $(document).click(function() {
 			GlycolysisCounter = GlycolysisCounter + 1;
 		} else if (GlycolysisCounter == 3) {
 			$('.glycolysis .animation .P1').css({top: $('.glycolysis .animation .ATP1').position().top, left: $('.glycolysis .animation .ATP1').position().left, opacity: 0}).removeClass('hidden').animate({left: $('.glycolysis .animation .ATP1').position().left+20}, 1).animate({opacity: 1, top: $($('.glycolysis .animation .circle.carbon')[0]).position().top+60, left: $($('.glycolysis .animation .circle.carbon')[0]).position().left}, 1000);
-			$('.glycolysis .animation .P2').css({top: $('.glycolysis .animation .ATP2').position().top, left: $('.glycolysis .animation .ATP2').position().left, opacity: 0}).removeClass('hidden').animate({left: $('.glycolysis .animation .ATP2').position().left+20}, 1).animate({opacity: 1, top: $($('.glycolysis .animation .circle.carbon')[5]).position().top+60, left: $($('.glycolysis .animation .circle.carbon')[5]).position().left}, 1000);
+			$('.glycolysis .animation .P2').css({top: $('.glycolysis .animation .ATP2').position().top, left: $('.glycolysis .animation .ATP2').position().left, opacity: 0}).removeClass('hidden').animate({left: $('.glycolysis .animation .ATP2').position().left+20}, 1).animate({opacity: 1, top: $($('.glycolysis .animation .circle.carbon')[6]).position().top+60, left: $($('.glycolysis .animation .circle.carbon')[6]).position().left}, 1000);
 			$('.glycolysis .animation .ATP.circle').animate({backgroundColor: '#f00', color: '#fff'}, 500).removeClass('ATP').addClass('ADP');
 			GlycolysisCounter = GlycolysisCounter + 1;
 		} else if (GlycolysisCounter == 4) {
-			$('.glycolysis .animation .ADP.circle').fadeOut();
+			$('.glycolysis .animation > * > .ADP.circle').fadeOut();
 			GlycolysisCounter = GlycolysisCounter + 1;
 		} else if (GlycolysisCounter == 5) {
+			$('.glycolysis .animation .carbon-spacer').attr('style', 'opacity: 0;');
+			$('.P2').animate({left: $('.P2').position().left+60}, 1);
+			GlycolysisCounter = GlycolysisCounter + 1;
+		} else if (GlycolysisCounter == 6) {
 			$('.glycolysis .NADPlusIn.hidden').html("\
 								1 NAD<sup>+</sup>\
 							").hide().removeClass("hidden").fadeIn(500);
-			$('.glycolysis .animation .NAD1').css({top: $($('.glycolysis .NADPlusIn')[0]).position().top, left: $($('.glycolysis .NADPlusIn')[0]).position().left}).animate({opacity: 0}, 1).removeClass("hidden").animate({opacity: 1, top: $($('.glycolysis .animation .circle.carbon')[0]).position().top, left: $($('.glycolysis .animation .circle.carbon')[0]).position().left-120}, 2000, function() {
+			$('.glycolysis .animation .NAD1').css({top: $($('.glycolysis .NADPlusIn')[0]).position().top, left: $($('.glycolysis .NADPlusIn')[0]).position().left}).animate({opacity: 0}, 1).removeClass("hidden").animate({opacity: 1, top: $($('.glycolysis .animation .circle.carbon')[0]).position().top, left: $($('.glycolysis .animation .circle.carbon')[0]).position().left-120}, 1000, function() {
 				$('.glycolysis .animation .NAD1').removeClass("NADPlus").addClass("NADH");
 			});
 			$('.glycolysis table .NADHOut').html("\
 								1 NADH\
 							").hide().removeClass("hidden").fadeIn(500);
-			$('.glycolysis .animation .NAD1').animate({top: $('.glycolysis table .NADHOut').position().top, left: $('.glycolysis table .NADHOut').position().left+20}, 1500, function() {
-				$('.glycolysis .animation .NAD1').fadeOut(500);
-				$('.glycolysis .NADPlusIn').html("\
-								2 NAD<sup>+</sup>\
-							")
-				$('.glycolysis .animation .NAD2').css({top: $($('.glycolysis .NADPlusIn')[0]).position().top, left: $($('.glycolysis .NADPlusIn')[0]).position().left}).animate({opacity: 0}, 1).removeClass("hidden").animate({opacity: 1, top: $($('.glycolysis .animation .circle.carbon')[0]).position().top, left: $($('.glycolysis .animation .circle.carbon')[0]).position().left-120}, 2000, function() {
-					$('.glycolysis .animation .NAD2').removeClass("NADPlus").addClass("NADH");
-				});
-				$('.glycolysis table .NADHOut').html("\
-									2 NADH\
-								");
-				$('.glycolysis .animation .NAD2').animate({top: $('.glycolysis table .NADHOut').position().top, left: $('.glycolysis table .NADHOut').position().left+20}, 1500, function() {$('.glycolysis .animation .NAD2').fadeOut(500)});
-			});
+			$('.glycolysis .animation .NAD1').animate({top: $('.glycolysis table .NADHOut').position().top, left: $('.glycolysis table .NADHOut').position().left+20}, 1000);
 			GlycolysisCounter = GlycolysisCounter + 1;
-		} else if (GlycolysisCounter == 6) {
-			$('.ADP1').animate({top: $('.P1').position().top, left: $('.P1').position().left}, 500).animate({backgroundColor: "#ff0", color: "#000"}, 1000).removeClass("ADP").addClass("ATP").animate({left: $('.glycolysis table .ATPOut').position().top, top: $('.glycolysis table .ATPOut').position().left}, 1000, function() {
-				$('.ATPOut').html("\
-								1 ATP (Net Gain: -1)\
-							").css({opacity: 0}).removeClass("hidden").fadeIn(500);
+		} else if (GlycolysisCounter == 7) {
+			$('.glycolysis .animation .NAD1').fadeOut(500);
+			$('.glycolysis .NADPlusIn').html("\
+							2 NAD<sup>+</sup>\
+						")
+			$('.glycolysis .animation .NAD2').css({top: $($('.glycolysis .NADPlusIn')[0]).position().top, left: $($('.glycolysis .NADPlusIn')[0]).position().left}).animate({opacity: 0}, 1).removeClass("hidden").animate({opacity: 1, top: $($('.glycolysis .animation .circle.carbon')[0]).position().top, left: $($('.glycolysis .animation .circle.carbon')[0]).position().left-120}, 1000, function() {
+				$('.glycolysis .animation .NAD2').removeClass("NADPlus").addClass("NADH");
 			});
-			$('.ADP2').animate({top: $('.P1').position().top, left: $('.P1').position().left}, 500).animate({backgroundColor: "#ff0", color: "#000"}, 1000).removeClass("ADP").addClass("ATP").animate({left: $('.glycolysis table .ATPOut').position().top, top: $('.glycolysis table .ATPOut').position().left}, 1000, function() {
-				$('.ATPOut').html("\
-								2 ATP (Net Gain: 0)\
+			$('.glycolysis table .NADHOut').html("\
+								2 NADH\
 							");
-				// $('.P1').hide();
+			$('.glycolysis .animation .NAD2').animate({top: $('.glycolysis table .NADHOut').position().top, left: $('.glycolysis table .NADHOut').position().left+20}, 1000, function() {$('.glycolysis .animation .NAD2').fadeOut(500)});
+			GlycolysisCounter = GlycolysisCounter + 1;			
+		} else if (GlycolysisCounter == 8) {
+			$('.ADP1').animate({top: $('.P1').position().top, left: $('.P1').position().left}, 500, function() {
+				$('.ADP1').animate({backgroundColor: "#ff0", color: "#000"}, 1000).removeClass("ADP").addClass("ATP").animate({top: $('.glycolysis table .ATPOut').position().top, left: $('.glycolysis table .ATPOut').position().left}, 1000, function() {
+					$('.ATPOut').html("\
+									1 ATP (Net Gain: -1)\
+								").css({opacity: 1}).removeClass("hidden").fadeIn(500);
+					$('.ADP1').hide();
+					$('.ADP2').animate({top: $('.P1').position().top, left: $('.P1').position().left}, 500, function() {
+						$('.ADP2').animate({backgroundColor: "#ff0", color: "#000"}, 1000).removeClass("ADP").addClass("ATP").animate({top: $('.glycolysis table .ATPOut').position().top, left: $('.glycolysis table .ATPOut').position().left}, 1000, function() {
+							$('.ATPOut').html("\
+											2 ATP (Net Gain: 0)\
+										");
+							$('.ADP2').hide();
+							$('.P1').hide();
+							$('.ADP3').animate({top: $('.P2').position().top, left: $('.P2').position().left}, 500, function() {
+								$('.ADP3').animate({backgroundColor: "#ff0", color: "#000"}, 1000).removeClass("ADP").addClass("ATP").animate({top: $('.glycolysis table .ATPOut').position().top, left: $('.glycolysis table .ATPOut').position().left}, 1000, function() {
+									$('.ATPOut').html("\
+													3 ATP (Net Gain: 1)\
+												");
+									$('.ADP3').hide();
+									$('.ADP4').animate({top: $('.P2').position().top, left: $('.P2').position().left}, 500, function() {
+										$('.ADP4').animate({backgroundColor: "#ff0", color: "#000"}, 1000).removeClass("ADP").addClass("ATP").animate({top: $('.glycolysis table .ATPOut').position().top, left: $('.glycolysis table .ATPOut').position().left}, 1000, function() {
+											$('.ATPOut').html("\
+															4 ATP (Net Gain: 2)\
+														");
+											$('.ADP4').hide();
+											$('.P2').hide();
+										});
+									});
+								});
+							});
+						});
+					});
+				});
 			});
-			$('.ADP3').animate({top: $('.P2').position().top, left: $('.P2').position().left}, 500).animate({backgroundColor: "#ff0", color: "#000"}, 1000).removeClass("ADP").addClass("ATP").animate({left: $('.glycolysis table .ATPOut').position().top, top: $('.glycolysis table .ATPOut').position().left}, 1000, function() {
-				$('.ATPOut').html("\
-								3 ATP (Net Gain: 1)\
-							");
-			});
-			$('.ADP4').animate({top: $('.P2').position().top, left: $('.P2').position().left}, 500).animate({backgroundColor: "#ff0", color: "#000"}, 1000).removeClass("ADP").addClass("ATP").animate({left: $('.glycolysis table .ATPOut').position().top, top: $('.glycolysis table .ATPOut').position().left}, 1000, function() {
-				$('.ATPOut').html("\
-								4 ATP (Net Gain: 2)\
-							");
-				// $('.P2').hide();
+			GlycolysisCounter = GlycolysisCounter + 1;			
+		} else if (GlycolysisCounter == 9) {
+			$('.PyruvateOut').removeClass("hidden");
+			$('.PyruvateOut').html("0 Pyruvate (C<sub>3</sub>H<sub>3</sub>O<sub>3</sub>)");
+			$($('.pyruvate')[0]).css('top', $($('.pyruvate')[0]).position().top).css('left', $($('.pyruvate')[0]).position().left).addClass('floating').animate({left: $('.PyruvateOut').position().left, top: $('.PyruvateOut').position().top}, 1000, function() {
+				$($('.pyruvate')[0]).hide();
+				$('.PyruvateOut').html("1 Pyruvate (C<sub>3</sub>H<sub>3</sub>O<sub>3</sub>)");
+				$($('.pyruvate')[1]).css('top', $($('.pyruvate')[1]).position().top).css('left', $($('.pyruvate')[1]).position().left).addClass('floating').animate({left: $('.PyruvateOut').position().left, top: $('.PyruvateOut').position().top}, 1000, function() {
+					$($('.pyruvate')[1]).hide();
+					$('.PyruvateOut').html("2 Pyruvate (C<sub>3</sub>H<sub>3</sub>O<sub>3</sub>)");
+				});
 			});
 		}
 	}
