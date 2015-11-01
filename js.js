@@ -72,6 +72,7 @@ function(){e.setMouseWheelScrolling(!1)}),t.on("mouseleave",d.normalScrollElemen
 clearTimeout(aa);n.off("scroll",pa).off("hashchange",ya).off("resize",Ba);t.off("click","#fp-nav a").off("mouseenter","#fp-nav li").off("mouseleave","#fp-nav li").off("click",".fp-slidesNav a").off("mouseover",d.normalScrollElements).off("mouseout",d.normalScrollElements);c(".fp-section").off("click",".fp-controlArrow");clearTimeout(ga);clearTimeout(ca);a&&bb()}}});
 
 var GlycolysisCounter = 0;
+var IntermediateCounter = 0;
 var slide;
 
 $(function() {
@@ -127,10 +128,10 @@ $(document).click(function() {
 			GlycolysisCounter = GlycolysisCounter + 1;
 		} else if (GlycolysisCounter == 5) {
 			$('.glycolysis .animation .carbon-spacer').attr('style', 'opacity: 0;');
-			$('.P2').animate({left: $('.P2').position().left+60}, 1);
+			$('.glycolysis .animation .P2').animate({left: $('.glycolysis .animation .P2').position().left+60}, 1);
 			GlycolysisCounter = GlycolysisCounter + 1;
 		} else if (GlycolysisCounter == 6) {
-			$('.glycolysis .NADPlusIn.hidden').html("\
+			$('.glycolysis table .NADPlusIn.hidden').html("\
 								1 NAD<sup>+</sup>\
 							").hide().removeClass("hidden").fadeIn(500);
 			$('.glycolysis .animation .NAD1').css({top: $($('.glycolysis .NADPlusIn')[0]).position().top, left: $($('.glycolysis .NADPlusIn')[0]).position().left}).animate({opacity: 0}, 1).removeClass("hidden").animate({opacity: 1, top: $($('.glycolysis .animation .circle.carbon')[0]).position().top, left: $($('.glycolysis .animation .circle.carbon')[0]).position().left-120}, 1000, function() {
@@ -155,32 +156,32 @@ $(document).click(function() {
 			$('.glycolysis .animation .NAD2').animate({top: $('.glycolysis table .NADHOut').position().top, left: $('.glycolysis table .NADHOut').position().left+20}, 1000, function() {$('.glycolysis .animation .NAD2').fadeOut(500)});
 			GlycolysisCounter = GlycolysisCounter + 1;			
 		} else if (GlycolysisCounter == 8) {
-			$('.ADP1').animate({top: $('.P1').position().top, left: $('.P1').position().left}, 500, function() {
-				$('.ADP1').animate({backgroundColor: "#ff0", color: "#000"}, 1000).removeClass("ADP").addClass("ATP").animate({top: $('.glycolysis table .ATPOut').position().top, left: $('.glycolysis table .ATPOut').position().left}, 1000, function() {
-					$('.ATPOut').html("\
+			$('.glycolysis .animation .ADP1').animate({top: $('.glycolysis .animation .P1').position().top, left: $('.glycolysis .animation .P1').position().left}, 500, function() {
+				$('.glycolysis .animation .ADP1').animate({backgroundColor: "#ff0", color: "#000"}, 1000).removeClass("ADP").addClass("ATP").animate({top: $('.glycolysis table .ATPOut').position().top, left: $('.glycolysis table .ATPOut').position().left}, 1000, function() {
+					$('.glycolysis table .ATPOut').html("\
 									1 ATP (Net Gain: -1)\
 								").css({opacity: 1}).removeClass("hidden").fadeIn(500);
-					$('.ADP1').hide();
-					$('.ADP2').animate({top: $('.P1').position().top, left: $('.P1').position().left}, 500, function() {
-						$('.ADP2').animate({backgroundColor: "#ff0", color: "#000"}, 1000).removeClass("ADP").addClass("ATP").animate({top: $('.glycolysis table .ATPOut').position().top, left: $('.glycolysis table .ATPOut').position().left}, 1000, function() {
-							$('.ATPOut').html("\
+					$('.glycolysis .animation .ADP1').hide();
+					$('.glycolysis .animation .ADP2').animate({top: $('.glycolysis .animation .P1').position().top, left: $('.glycolysis .animation .P1').position().left}, 500, function() {
+						$('.glycolysis .animation .ADP2').animate({backgroundColor: "#ff0", color: "#000"}, 1000).removeClass("ADP").addClass("ATP").animate({top: $('.glycolysis table .ATPOut').position().top, left: $('.glycolysis table .ATPOut').position().left}, 1000, function() {
+							$('.glycolysis table .ATPOut').html("\
 											2 ATP (Net Gain: 0)\
 										");
-							$('.ADP2').hide();
-							$('.P1').hide();
-							$('.ADP3').animate({top: $('.P2').position().top, left: $('.P2').position().left}, 500, function() {
-								$('.ADP3').animate({backgroundColor: "#ff0", color: "#000"}, 1000).removeClass("ADP").addClass("ATP").animate({top: $('.glycolysis table .ATPOut').position().top, left: $('.glycolysis table .ATPOut').position().left}, 1000, function() {
-									$('.ATPOut').html("\
+							$('.glycolysis .animation .ADP2').hide();
+							$('.glycolysis .animation .P1').hide();
+							$('.glycolysis .animation .ADP3').animate({top: $('.glycolysis .animation .P2').position().top, left: $('.glycolysis .animation .P2').position().left}, 500, function() {
+								$('.glycolysis .animation .ADP3').animate({backgroundColor: "#ff0", color: "#000"}, 1000).removeClass("ADP").addClass("ATP").animate({top: $('.glycolysis table .ATPOut').position().top, left: $('.glycolysis table .ATPOut').position().left}, 1000, function() {
+									$('.glycolysis table .ATPOut').html("\
 													3 ATP (Net Gain: 1)\
 												");
-									$('.ADP3').hide();
-									$('.ADP4').animate({top: $('.P2').position().top, left: $('.P2').position().left}, 500, function() {
-										$('.ADP4').animate({backgroundColor: "#ff0", color: "#000"}, 1000).removeClass("ADP").addClass("ATP").animate({top: $('.glycolysis table .ATPOut').position().top, left: $('.glycolysis table .ATPOut').position().left}, 1000, function() {
-											$('.ATPOut').html("\
+									$('.glycolysis .animation .ADP3').hide();
+									$('.glycolysis .animation .ADP4').animate({top: $('.glycolysis .animation .P2').position().top, left: $('.glycolysis .animation .P2').position().left}, 500, function() {
+										$('.glycolysis .animation .ADP4').animate({backgroundColor: "#ff0", color: "#000"}, 1000).removeClass("ADP").addClass("ATP").animate({top: $('.glycolysis table .ATPOut').position().top, left: $('.glycolysis table .ATPOut').position().left}, 1000, function() {
+											$('.glycolysis table .ATPOut').html("\
 															4 ATP (Net Gain: 2)\
 														");
-											$('.ADP4').hide();
-											$('.P2').hide();
+											$('.glycolysis .animation .ADP4').hide();
+											$('.glycolysis .animation .P2').hide();
 										});
 									});
 								});
@@ -191,16 +192,18 @@ $(document).click(function() {
 			});
 			GlycolysisCounter = GlycolysisCounter + 1;			
 		} else if (GlycolysisCounter == 9) {
-			$('.PyruvateOut').removeClass("hidden");
-			$('.PyruvateOut').html("0 Pyruvate (C<sub>3</sub>H<sub>3</sub>O<sub>3</sub>)");
-			$($('.pyruvate')[0]).css('top', $($('.pyruvate')[0]).position().top).css('left', $($('.pyruvate')[0]).position().left).addClass('floating').animate({left: $('.PyruvateOut').position().left, top: $('.PyruvateOut').position().top}, 1000, function() {
-				$($('.pyruvate')[0]).hide();
-				$('.PyruvateOut').html("1 Pyruvate (C<sub>3</sub>H<sub>3</sub>O<sub>3</sub>)");
-				$($('.pyruvate')[1]).css('top', $($('.pyruvate')[1]).position().top).css('left', $($('.pyruvate')[1]).position().left).addClass('floating').animate({left: $('.PyruvateOut').position().left, top: $('.PyruvateOut').position().top}, 1000, function() {
-					$($('.pyruvate')[1]).hide();
-					$('.PyruvateOut').html("2 Pyruvate (C<sub>3</sub>H<sub>3</sub>O<sub>3</sub>)");
+			$('.glycolysis table .PyruvateOut').removeClass("hidden");
+			$('.glycolysis table .PyruvateOut').html("0 Pyruvate (C<sub>3</sub>H<sub>3</sub>O<sub>3</sub>)");
+			$($('.glycolysis .animation .pyruvate')[0]).css('top', $($('.glycolysis .animation .pyruvate')[0]).position().top).css('left', $($('.glycolysis .animation .pyruvate')[0]).position().left).addClass('floating').animate({left: $('.glycolysis table .PyruvateOut').position().left, top: $('.glycolysis table .PyruvateOut').position().top}, 1000, function() {
+				$($('.glycolysis .animation .pyruvate')[0]).hide();
+				$('.glycolysis table .PyruvateOut').html("1 Pyruvate (C<sub>3</sub>H<sub>3</sub>O<sub>3</sub>)");
+				$($('.glycolysis .animation .pyruvate')[1]).css('top', $($('.glycolysis .animation .pyruvate')[1]).position().top).css('left', $($('.glycolysis .animation .pyruvate')[1]).position().left).addClass('floating').animate({left: $('.glycolysis table .PyruvateOut').position().left, top: $('.glycolysis table .PyruvateOut').position().top}, 1000, function() {
+					$($('.glycolysis .animation .pyruvate')[1]).hide();
+					$('.glycolysis table .PyruvateOut').html("2 Pyruvate (C<sub>3</sub>H<sub>3</sub>O<sub>3</sub>)");
 				});
 			});
+			GlycolysisCounter = GlycolysisCounter + 1;			
 		}
+	} else if (slide == "IntermediateStep") {
 	}
 })

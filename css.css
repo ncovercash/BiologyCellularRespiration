@@ -283,10 +283,8 @@ sub {
 	padding: 3%;
 	text-align: center;
 }
-.glycolysis .animation .floating {
+.floating {
 	position: fixed;
-	top: 0;
-	left: 0;
 }
 .glycolysis .animation .ATP1-placeholder, .glycolysis .animation .ATP2-placeholder {
 	display: inline-block;
@@ -297,4 +295,42 @@ sub {
 .glycolysis .animation .circle, .glycolysis .animation .pyruvate, .glycolysis .animation .ATP-placeholder {
 	display: inline-block;
 	float: left;
+}
+.intermediatestep .animation {
+	width: 75%;
+	height: 10em;
+	margin-left: 12.5%;
+	margin-top: 2em;
+	border-radius: 1em;
+}
+.intermediatestep .animation .cytosol {
+	width: 34%;
+	height: 30em;
+	float: left;
+	background-color: rgba(189, 183, 107, 0.8);
+	border-top-left-radius: 1em;
+	border-bottom-left-radius: 1em;
+	display: inline-block;
+}
+.intermediatestep .animation .mitochondrion {
+	background-color: rgba(139, 69, 19, 0.5);
+	width: 100%;
+}
+.intermediatestep .animation .mitochondrion h2, .intermediatestep .animation .cytosol h2 {
+	padding-top: 1em;
+	font-size: 2em;
+}
+.intermediatestep .animation .mitochondrion, .intermediatestep .animation .mitochondrion-wrapper {
+	height: 30em !important;
+	border-radius: 5em 1em 1em 5em;
+	float: left;
+	display: inline-block;
+}
+.intermediatestep .animation .mitochondrion-wrapper {
+	width: 66%;
+	background-color: rgba(189, 183, 107, 0.8);
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+	border-top-right-radius: 1em;
+	border-bottom-right-radius: 1em;
 }
