@@ -71,6 +71,11 @@ h.mousedown(function(a){2==a.which&&(O=a.pageY,h.on("mousemove",Ya))});h.mouseup
 function(){e.setMouseWheelScrolling(!1)}),t.on("mouseleave",d.normalScrollElements,function(){e.setMouseWheelScrolling(!0)}));c(".fp-section").on("click touchstart",".fp-controlArrow",function(){c(this).hasClass("fp-prev")?l.m.left&&e.moveSlideLeft():l.m.right&&e.moveSlideRight()});n.resize(Ba);var ha=q;e.destroy=function(a){e.setAutoScrolling(!1,"internal");e.setAllowScrolling(!1);e.setKeyboardScrolling(!1);h.addClass("fp-destroyed");clearTimeout(ga);clearTimeout(ca);clearTimeout(ia);clearTimeout(Z);
 clearTimeout(aa);n.off("scroll",pa).off("hashchange",ya).off("resize",Ba);t.off("click","#fp-nav a").off("mouseenter","#fp-nav li").off("mouseleave","#fp-nav li").off("click",".fp-slidesNav a").off("mouseover",d.normalScrollElements).off("mouseout",d.normalScrollElements);c(".fp-section").off("click",".fp-controlArrow");clearTimeout(ga);clearTimeout(ca);a&&bb()}}});
 
+function em(input) {
+    var emSize = parseFloat($("body").css("font-size"));
+    return (emSize * input);
+}
+
 var GlycolysisCounter = 0;
 var IntermediateCounter = 0;
 var slide;
@@ -91,6 +96,8 @@ $(function() {
 			slide = anchorLink;
 		}
 	})
+	$('.single-bond.vertical, .double-bond.vertical').css("height", em(6)-60);
+	$('.single-bond.horizontal, .double-bond.horizontal').css("width", em(6)-60);
 });
 
 $(document).click(function() {
@@ -157,26 +164,26 @@ $(document).click(function() {
 			GlycolysisCounter = GlycolysisCounter + 1;			
 		} else if (GlycolysisCounter == 8) {
 			$('.glycolysis .animation .ADP1').animate({top: $('.glycolysis .animation .P1').position().top, left: $('.glycolysis .animation .P1').position().left}, 500, function() {
-				$('.glycolysis .animation .ADP1').animate({backgroundColor: "#ff0", color: "#000"}, 1000).removeClass("ADP").addClass("ATP").animate({top: $('.glycolysis table .ATPOut').position().top, left: $('.glycolysis table .ATPOut').position().left}, 1000, function() {
+				$('.glycolysis .animation .ADP1').animate({backgroundColor: "#ff0", color: "#000"}, 100).removeClass("ADP").addClass("ATP").animate({top: $('.glycolysis table .ATPOut').position().top, left: $('.glycolysis table .ATPOut').position().left}, 500, function() {
 					$('.glycolysis table .ATPOut').html("\
 									1 ATP (Net Gain: -1)\
 								").css({opacity: 1}).removeClass("hidden").fadeIn(500);
 					$('.glycolysis .animation .ADP1').hide();
 					$('.glycolysis .animation .ADP2').animate({top: $('.glycolysis .animation .P1').position().top, left: $('.glycolysis .animation .P1').position().left}, 500, function() {
-						$('.glycolysis .animation .ADP2').animate({backgroundColor: "#ff0", color: "#000"}, 1000).removeClass("ADP").addClass("ATP").animate({top: $('.glycolysis table .ATPOut').position().top, left: $('.glycolysis table .ATPOut').position().left}, 1000, function() {
+						$('.glycolysis .animation .ADP2').animate({backgroundColor: "#ff0", color: "#000"}, 100).removeClass("ADP").addClass("ATP").animate({top: $('.glycolysis table .ATPOut').position().top, left: $('.glycolysis table .ATPOut').position().left}, 500, function() {
 							$('.glycolysis table .ATPOut').html("\
 											2 ATP (Net Gain: 0)\
 										");
 							$('.glycolysis .animation .ADP2').hide();
 							$('.glycolysis .animation .P1').hide();
 							$('.glycolysis .animation .ADP3').animate({top: $('.glycolysis .animation .P2').position().top, left: $('.glycolysis .animation .P2').position().left}, 500, function() {
-								$('.glycolysis .animation .ADP3').animate({backgroundColor: "#ff0", color: "#000"}, 1000).removeClass("ADP").addClass("ATP").animate({top: $('.glycolysis table .ATPOut').position().top, left: $('.glycolysis table .ATPOut').position().left}, 1000, function() {
+								$('.glycolysis .animation .ADP3').animate({backgroundColor: "#ff0", color: "#000"}, 100).removeClass("ADP").addClass("ATP").animate({top: $('.glycolysis table .ATPOut').position().top, left: $('.glycolysis table .ATPOut').position().left}, 500, function() {
 									$('.glycolysis table .ATPOut').html("\
 													3 ATP (Net Gain: 1)\
 												");
 									$('.glycolysis .animation .ADP3').hide();
 									$('.glycolysis .animation .ADP4').animate({top: $('.glycolysis .animation .P2').position().top, left: $('.glycolysis .animation .P2').position().left}, 500, function() {
-										$('.glycolysis .animation .ADP4').animate({backgroundColor: "#ff0", color: "#000"}, 1000).removeClass("ADP").addClass("ATP").animate({top: $('.glycolysis table .ATPOut').position().top, left: $('.glycolysis table .ATPOut').position().left}, 1000, function() {
+										$('.glycolysis .animation .ADP4').animate({backgroundColor: "#ff0", color: "#000"}, 100).removeClass("ADP").addClass("ATP").animate({top: $('.glycolysis table .ATPOut').position().top, left: $('.glycolysis table .ATPOut').position().left}, 500, function() {
 											$('.glycolysis table .ATPOut').html("\
 															4 ATP (Net Gain: 2)\
 														");
@@ -202,8 +209,38 @@ $(document).click(function() {
 					$('.glycolysis table .PyruvateOut').html("2 Pyruvate (C<sub>3</sub>H<sub>3</sub>O<sub>3</sub>)");
 				});
 			});
-			GlycolysisCounter = GlycolysisCounter + 1;			
+			GlycolysisCounter = GlycolysisCounter + 1;
+		} else if (GlycolysisCounter == 10) {
+			$.fn.fullpage.moveSectionDown();
 		}
 	} else if (slide == "IntermediateStep") {
+		if (IntermediateCounter == 0) {
+			$($('.intermediatestep .circle.oxygen.floating')[0]).css("top", $('.intermediatestep .animation .cytosol').position().top+em(6)+$(window).height()).css("left", $('.intermediatestep .animation .cytosol').position().left+$(window).width()*(0.1275)-90);
+			$($('.intermediatestep .circle.oxygen.floating')[0]).hide().removeClass("hidden").fadeIn(500);
+			$($('.intermediatestep .single-bond.floating')[0]).css("top", $('.intermediatestep .animation .cytosol').position().top+em(6)+$(window).height()+60).css("left", $('.intermediatestep .animation .cytosol').position().left+$(window).width()*(0.1275)-62);
+			$($('.intermediatestep .single-bond.floating')[0]).hide().removeClass("hidden").fadeIn(500);
+			$($('.intermediatestep .circle.carbon.floating')[0]).css("top", $('.intermediatestep .animation .cytosol').position().top+em(12)+$(window).height()).css("left", $('.intermediatestep .animation .cytosol').position().left+$(window).width()*(0.1275)-90);
+			$($('.intermediatestep .circle.carbon.floating')[0]).hide().removeClass("hidden").fadeIn(500);
+			$($('.intermediatestep .circle.oxygen.floating')[1]).css("top", $('.intermediatestep .animation .cytosol').position().top+em(12)+$(window).height()).css("left", $('.intermediatestep .animation .cytosol').position().left+$(window).width()*(0.1275)-90+em(6));
+			$($('.intermediatestep .circle.oxygen.floating')[1]).hide().removeClass("hidden").fadeIn(500);
+			$($('.intermediatestep .double-bond.horizontal')[0]).css("top", $('.intermediatestep .animation .cytosol').position().top+em(12)+$(window).height()+24).css("left", $('.intermediatestep .animation .cytosol').position().left+$(window).width()*(0.1275)-30);
+			$($('.intermediatestep .double-bond.horizontal')[0]).hide().removeClass("hidden").fadeIn(500);
+			$($('.intermediatestep .double-bond.horizontal')[1]).css("top", $('.intermediatestep .animation .cytosol').position().top+em(12)+$(window).height()+32).css("left", $('.intermediatestep .animation .cytosol').position().left+$(window).width()*(0.1275)-30);
+			$($('.intermediatestep .double-bond.horizontal')[1]).hide().removeClass("hidden").fadeIn(500);
+			$($('.intermediatestep .single-bond.floating')[1]).css("top", $('.intermediatestep .animation .cytosol').position().top+em(12)+$(window).height()+60).css("left", $('.intermediatestep .animation .cytosol').position().left+$(window).width()*(0.1275)-62);
+			$($('.intermediatestep .single-bond.floating')[1]).hide().removeClass("hidden").fadeIn(500);
+			$($('.intermediatestep .circle.carbon.floating')[1]).css("top", $('.intermediatestep .animation .cytosol').position().top+em(18)+$(window).height()).css("left", $('.intermediatestep .animation .cytosol').position().left+$(window).width()*(0.1275)-90);
+			$($('.intermediatestep .circle.carbon.floating')[1]).hide().removeClass("hidden").fadeIn(500);
+			$($('.intermediatestep .circle.oxygen.floating')[2]).css("top", $('.intermediatestep .animation .cytosol').position().top+em(18)+$(window).height()).css("left", $('.intermediatestep .animation .cytosol').position().left+$(window).width()*(0.1275)-90+em(6));
+			$($('.intermediatestep .circle.oxygen.floating')[2]).hide().removeClass("hidden").fadeIn(500);
+			$($('.intermediatestep .double-bond.horizontal')[2]).css("top", $('.intermediatestep .animation .cytosol').position().top+em(18)+$(window).height()+24).css("left", $('.intermediatestep .animation .cytosol').position().left+$(window).width()*(0.1275)-30);
+			$($('.intermediatestep .double-bond.horizontal')[2]).hide().removeClass("hidden").fadeIn(500);
+			$($('.intermediatestep .double-bond.horizontal')[3]).css("top", $('.intermediatestep .animation .cytosol').position().top+em(18)+$(window).height()+32).css("left", $('.intermediatestep .animation .cytosol').position().left+$(window).width()*(0.1275)-30);
+			$($('.intermediatestep .double-bond.horizontal')[3]).hide().removeClass("hidden").fadeIn(500);
+			$($('.intermediatestep .single-bond.floating')[2]).css("top", $('.intermediatestep .animation .cytosol').position().top+em(18)+$(window).height()+60).css("left", $('.intermediatestep .animation .cytosol').position().left+$(window).width()*(0.1275)-62);
+			$($('.intermediatestep .single-bond.floating')[2]).hide().removeClass("hidden").fadeIn(500);
+			$('.intermediatestep .circle.ch3.floating').css("top", $('.intermediatestep .animation .cytosol').position().top+em(24)+$(window).height()).css("left", $('.intermediatestep .animation .cytosol').position().left+$(window).width()*(0.1275)-90);
+			$('.intermediatestep .circle.ch3.floating').hide().removeClass("hidden").fadeIn(500);
+		}
 	}
 })

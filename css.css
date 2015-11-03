@@ -170,6 +170,22 @@ sub {
 	vertical-align: sub;
 	font-size: smaller;
 }
+.single-bond.vertical {
+	width: 4px;
+	background-color: #000;
+}
+.single-bond.horizontal {
+	height: 4px;
+	background-color: #000;
+}
+.double-bond.vertical {
+	width: 4px;
+	background-color: #000;
+}
+.double-bond.horizontal {
+	height: 4px;
+	background-color: #000;
+}
 .circle.carbon {
 	height: 60px;
 	width: 60px;
@@ -180,6 +196,20 @@ sub {
 }
 .circle.carbon:after {
 	content: "C";
+	font-size: 40px;
+	display: inline-block;
+	margin-top: 10px;
+}
+.circle.oxygen {
+	height: 60px;
+	width: 60px;
+	border-radius: 1000px;
+	background-color: #f00;
+	color: #fff;
+	vertical-align: middle;
+}
+.circle.oxygen:after {
+	content: "O";
 	font-size: 40px;
 	display: inline-block;
 	margin-top: 10px;
@@ -216,6 +246,27 @@ sub {
 	content: "+";
 	font-size: 20px;
 	vertical-align: top;
+	display: inline-block;
+	margin-top: 10px;
+}
+.circle.ch3 {
+	height: 60px;
+	width: 120px;
+	border-radius: 1000px;
+	background-color: #191919;
+	color: #fff;
+	vertical-align: middle;
+}
+.circle.ch3:before {
+	content: "CH";
+	font-size: 40px;
+	display: inline-block;
+	margin-top: 10px;
+}
+.circle.ch3:after {
+	content: "3";
+	font-size: 20px;
+	vertical-align: bottom;
 	display: inline-block;
 	margin-top: 10px;
 }
