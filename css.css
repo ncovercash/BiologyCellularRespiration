@@ -312,6 +312,20 @@ sub {
 	display: inline-block;
 	margin-top: 15px;
 }
+.circle.CoA {
+	height: 60px;
+	width: 100px;
+	border-radius: 1000px;
+	background-color: #ff3333;
+	color: #fff;
+	vertical-align: middle;
+}
+.circle.CoA:after {
+	content: "CoA";
+	font-size: 40px;
+	display: inline-block;
+	margin-top: 10px;
+}
 .glycolysis table {
 	float: left;
 	width: 30%;

@@ -241,6 +241,34 @@ $(document).click(function() {
 			$($('.intermediatestep .single-bond.floating')[2]).hide().removeClass("hidden").fadeIn(500);
 			$('.intermediatestep .circle.ch3.floating').css("top", $('.intermediatestep .animation .cytosol').position().top+em(24)+$(window).height()).css("left", $('.intermediatestep .animation .cytosol').position().left+$(window).width()*(0.1275)-90);
 			$('.intermediatestep .circle.ch3.floating').hide().removeClass("hidden").fadeIn(500);
+			IntermediateCounter = IntermediateCounter + 1;
+		} else if (IntermediateCounter == 1) {
+			$('.intermediatestep .circle, .intermediatestep .single-bond, .intermediatestep .double-bond').animate({left: "+="+$('.intermediatestep .animation .cytosol').width()}, 1000);
+			IntermediateCounter = IntermediateCounter + 1;
+		} else if (IntermediateCounter == 2) {
+			$($('.intermediatestep .single-bond.floating')[1]).hide();
+			$($('.intermediatestep .circle.oxygen.floating')[0]).animate({top: "-=5em", left: "-=5em"});
+			$($('.intermediatestep .single-bond.floating')[0]).animate({top: "-=5em", left: "-=5em"});
+			$($('.intermediatestep .circle.carbon.floating')[0]).animate({top: "-=5em", left: "-=5em"});
+			$($('.intermediatestep .circle.oxygen.floating')[1]).animate({top: "-=5em", left: "-=5em"});
+			$($('.intermediatestep .double-bond.horizontal')[0]).animate({top: "-=5em", left: "-=5em"});
+			$($('.intermediatestep .double-bond.horizontal')[1]).animate({top: "-=5em", left: "-=5em"});
+			IntermediateCounter = IntermediateCounter + 1;
+		} else if (IntermediateCounter == 3) {
+			$('.intermediatestep .NADPlus').css("top", $(window).height()-60).css("left", "-120px").removeClass("hidden").animate({"top": $($('.intermediatestep .circle.carbon.floating')[1]).position().top+$(window).height()-60, "left": $($('.intermediatestep .circle.carbon.floating')[1]).position().left}, 1000, function() {
+				$('.intermediatestep .NADPlus').removeClass("NADPlus").addClass("NADH").animate({left: $($('.intermediatestep .circle.oxygen.floating')[1]).position().left, "top": ($($('.intermediatestep .circle.oxygen.floating')[0]).position().top + $(window).height())}, 1000);
+			});
+			IntermediateCounter = IntermediateCounter + 1;
+		} else if (IntermediateCounter == 4) {
+			$('.intermediatestep .CoA').css("top", $(window).height()-120-em(6)).css("left", "-120px").removeClass("hidden").animate({"top": $($('.intermediatestep .circle.carbon.floating')[1]).position().top+$(window).height()-60, "left": $($('.intermediatestep .circle.carbon.floating')[1]).position().left}, 1000, function() {
+				$('.intermediatestep .CoA, .intermediatestep .ch3').animate({left: "+=20%"});
+				$($('.intermediatestep .carbon')[1]).animate({left: "+=20%"});
+				$($('.intermediatestep .oxygen')[2]).animate({left: "+=20%"});
+				$($('.intermediatestep .single-bond')[2]).animate({left: "+=20%"});
+				$($('.intermediatestep .double-bond')[2]).animate({left: "+=20%"});
+				$($('.intermediatestep .double-bond')[3]).animate({left: "+=20%"});
+			});
+			IntermediateCounter = IntermediateCounter + 1;
 		}
 	}
-})
+});
