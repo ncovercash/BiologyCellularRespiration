@@ -78,6 +78,7 @@ function em(input) {
 
 var GlycolysisCounter = 0;
 var IntermediateCounter = 0;
+var KrebsCounter = 0;
 var slide;
 
 $(function() {
@@ -269,6 +270,17 @@ $(document).click(function() {
 				$($('.intermediatestep .double-bond')[3]).animate({left: "+=20%"});
 			});
 			IntermediateCounter = IntermediateCounter + 1;
+		}
+	} else if (slide == "KrebsCycle") {
+		if (KrebsCounter == 0) {
+			$($('.intermediatestep .carbon')[1]).prependTo('.krebscycle').animate({left: "-=30%", top: "+="+$(window).height()/1.5});
+			$('.intermediatestep .CoA').prependTo('.krebscycle').animate({left: "-=30%", top: "+="+$(window).height()/1.5});
+			$($('.intermediatestep .oxygen')[2]).prependTo('.krebscycle').animate({left: "-=30%", top: "+="+$(window).height()/1.5});
+			$($('.intermediatestep .single-bond')[2]).prependTo('.krebscycle').animate({left: "-=30%", top: "+="+$(window).height()/1.5});
+			$($('.intermediatestep .double-bond')[2]).prependTo('.krebscycle').animate({left: "-=30%", top: "+="+$(window).height()/1.5});
+			$($('.intermediatestep .double-bond')[2]).prependTo('.krebscycle').animate({left: "-=30%", top: "+="+$(window).height()/1.5});
+			$('.intermediatestep .ch3').prependTo('.krebscycle').animate({left: "-=30%", top: "+="+$(window).height()/1.5});
+			KrebsCounter = KrebsCounter + 1;
 		}
 	}
 });

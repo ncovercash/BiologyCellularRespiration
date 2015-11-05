@@ -335,7 +335,7 @@ sub {
 	border-collapse: initial;
 }
 .glycolysis thead tr th {
-	font-size: 4em;
+	font-size: 3em;
 	text-align: center
 }
 .glycolysis tbody tr td {
