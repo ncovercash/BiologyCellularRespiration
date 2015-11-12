@@ -371,9 +371,52 @@ $(document).click(function() {
 		if (ETCCounter == 0) {
 			$($('.ETC h1')[1]).html("NADH x 7 FADH<sub>2</sub> x 2");
 			$('.ETC .circle.electron').animate({top: $($('.ETC h1')[2]).position().top+$(window).height()+$(window).height()+$(window).height()}, 1).css("left", $($('.ETC h1')[2]).position().left).removeClass("hidden").animate({left: "+="+$($('.ETC h1')[2]).width()}, 2000);
-			$('.ETC').append("<div class='circle hplus floating' style='top: "+$($('.ETC h1')[2]).position().top-(Math.floor(Math.random() * 12*$($('br')[0]).height()))+$(window).height()+$(window).height()+$(window).height()+"; left: "+Math.floor(Math.random() * $(window).width())+";'></div>");
-			//$('.ETC').animate({top: $($('.ETC h1')[2]).position().top-(Math.floor(Math.random() * 12*$($('br')[0]).height()))+$(window).height()+$(window).height()+$(window).height(), left: Math.floor(Math.random() * $(window).width())});
-
+			//reallycoolidforsublime
+			ETCCounter = ETCCounter + 1;
+		} else if (ETCCounter == 1) {
+			$($('.ETC h1')[1]).html("NADH x 6 FADH<sub>2</sub> x 2");
+			$('.ETC .circle.electron').css("left", $($('.ETC h1')[2]).position().left).animate({left: "+="+$($('.ETC h1')[2]).width()}, 2000);
+			//reallycoolidforsublime
+			ETCCounter = ETCCounter + 1;
+		} else if (ETCCounter == 2) {
+			$($('.ETC h1')[1]).html("NADH x 5 FADH<sub>2</sub> x 2");
+			$('.ETC .circle.electron').css("left", $($('.ETC h1')[2]).position().left).animate({left: "+="+$($('.ETC h1')[2]).width()}, 2000);
+			//reallycoolidforsublime
+			ETCCounter = ETCCounter + 1;
+		} else if (ETCCounter == 3) {
+			$($('.ETC h1')[1]).html("NADH x 4 FADH<sub>2</sub> x 2");
+			$('.ETC .circle.electron').css("left", $($('.ETC h1')[2]).position().left).animate({left: "+="+$($('.ETC h1')[2]).width()}, 2000);
+			//reallycoolidforsublime
+			ETCCounter = ETCCounter + 1;
+		} else if (ETCCounter == 4) {
+			$($('.ETC h1')[1]).html("NADH x 3 FADH<sub>2</sub> x 2");
+			$('.ETC .circle.electron').css("left", $($('.ETC h1')[2]).position().left).animate({left: "+="+$($('.ETC h1')[2]).width()}, 2000);
+			//reallycoolidforsublime
+			ETCCounter = ETCCounter + 1;
+		} else if (ETCCounter == 5) {
+			$($('.ETC h1')[1]).html("NADH x 2 FADH<sub>2</sub> x 2");
+			$('.ETC .circle.electron').css("left", $($('.ETC h1')[2]).position().left).animate({left: "+="+$($('.ETC h1')[2]).width()}, 2000);
+			//reallycoolidforsublime
+			ETCCounter = ETCCounter + 1;
+		} else if (ETCCounter == 6) {
+			$($('.ETC h1')[1]).html("NADH x 1 FADH<sub>2</sub> x 2");
+			$('.ETC .circle.electron').css("left", $($('.ETC h1')[2]).position().left).animate({left: "+="+$($('.ETC h1')[2]).width()}, 2000);
+			//reallycoolidforsublime
+			ETCCounter = ETCCounter + 1;
+		} else if (ETCCounter == 7) {
+			$($('.ETC h1')[1]).html("NADH x 0 FADH<sub>2</sub> x 2");
+			$('.ETC .circle.electron').css("left", $($('.ETC h1')[2]).position().left).animate({left: "+="+$($('.ETC h1')[2]).width()}, 2000);
+			//reallycoolidforsublime
+			ETCCounter = ETCCounter + 1;
+		} else if (ETCCounter == 8) {
+			$($('.ETC h1')[1]).html("NADH x 0 FADH<sub>2</sub> x 1");
+			$('.ETC .circle.electron').css("left", $($('.ETC h1')[2]).position().left).animate({left: "+="+$($('.ETC h1')[2]).width()}, 2000);
+			//reallycoolidforsublime
+			ETCCounter = ETCCounter + 1;
+		} else if (ETCCounter == 8) {
+			$($('.ETC h1')[1]).html("NADH x 0 FADH<sub>2</sub> x 0");
+			$('.ETC .circle.electron').css("left", $($('.ETC h1')[2]).position().left).animate({left: "+="+$($('.ETC h1')[2]).width()}, 2000);
+			//reallycoolidforsublime
 			ETCCounter = ETCCounter + 1;
 		}
 	}
