@@ -189,8 +189,9 @@ sub {
 	background-color: #000;
 }
 .circle.hplus {
-	height: 30px;
-	width: 30px;
+	min-height: 30px !important;
+	min-width: 30px;
+	display: inline;
 	border-radius: 10000px;
 	background-color: rgb(0,0,255);
 	color: #000;
@@ -383,6 +384,21 @@ sub {
 }
 .circle.ATP:after {
 	content: "ATP";
+	font-size: 30px;
+	display: inline-block;
+	margin-top: 15px;
+}
+.circle.ATP32 {
+	height: 60px;
+	width: 180px;
+	z-index: 999;
+	border-radius: 1000px;
+	background-color: #ff0;
+	color: #000;
+	vertical-align: middle;
+}
+.circle.ATP32:after {
+	content: "32xATP";
 	font-size: 30px;
 	display: inline-block;
 	margin-top: 15px;

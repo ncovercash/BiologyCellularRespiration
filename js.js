@@ -84,6 +84,7 @@ var IntermediateCounter = 0;
 var KrebsCounter = 0;
 var ETCCounter = 0;
 var slide;
+var i = 0;
 
 $(function() {
 	$("#project-main").fullpage({
@@ -222,36 +223,38 @@ $(document).click(function() {
 			$.fn.fullpage.moveSlideRight();
 		}
 	} else if (slide == "IntermediateStep") {
-		if (IntermediateCounter == 1) {
-			$($('.intermediatestep .circle.oxygen.floating')[0]).css("top", $('.intermediatestep .animation .cytosol').position().top+em(6)+$(window).height()).css("left", $('.intermediatestep .animation .cytosol').position().left+$(window).width()*(0.1275)-90);
+
+		if (IntermediateCounter == 0) {
+			$($('.intermediatestep .circle.oxygen.floating')[0]).css("top", $('.intermediatestep .animation .cytosol').position().top+em(6)+$(window).height()).css("left", $('.intermediatestep .animation .cytosol').position().left*(0.1275)-90);
 			$($('.intermediatestep .circle.oxygen.floating')[0]).hide().removeClass("hidden").fadeIn(500, function() {
 				$($('.intermediatestep .circle.oxygen.floating')[0]).tooltipster('show');
 			});
-			$($('.intermediatestep .single-bond.floating')[0]).css("top", $('.intermediatestep .animation .cytosol').position().top+em(6)+$(window).height()+60).css("left", $('.intermediatestep .animation .cytosol').position().left+$(window).width()*(0.1275)-62);
+			$($('.intermediatestep .single-bond.floating')[0]).css("top", $('.intermediatestep .animation .cytosol').position().top+em(6)+$(window).height()+60).css("left", $('.intermediatestep .animation .cytosol').position().left*(0.1275)-62);
 			$($('.intermediatestep .single-bond.floating')[0]).hide().removeClass("hidden").fadeIn(500);
-			$($('.intermediatestep .circle.carbon.floating')[0]).css("top", $('.intermediatestep .animation .cytosol').position().top+em(12)+$(window).height()).css("left", $('.intermediatestep .animation .cytosol').position().left+$(window).width()*(0.1275)-90);
+			$($('.intermediatestep .circle.carbon.floating')[0]).css("top", $('.intermediatestep .animation .cytosol').position().top+em(12)+$(window).height()).css("left", $('.intermediatestep .animation .cytosol').position().left*(0.1275)-90);
 			$($('.intermediatestep .circle.carbon.floating')[0]).hide().removeClass("hidden").fadeIn(500);
-			$($('.intermediatestep .circle.oxygen.floating')[1]).css("top", $('.intermediatestep .animation .cytosol').position().top+em(12)+$(window).height()).css("left", $('.intermediatestep .animation .cytosol').position().left+$(window).width()*(0.1275)-90+em(6));
+			$($('.intermediatestep .circle.oxygen.floating')[1]).css("top", $('.intermediatestep .animation .cytosol').position().top+em(12)+$(window).height()).css("left", $('.intermediatestep .animation .cytosol').position().left*(0.1275)-90+em(6));
 			$($('.intermediatestep .circle.oxygen.floating')[1]).hide().removeClass("hidden").fadeIn(500);
-			$($('.intermediatestep .double-bond.horizontal')[0]).css("top", $('.intermediatestep .animation .cytosol').position().top+em(12)+$(window).height()+24).css("left", $('.intermediatestep .animation .cytosol').position().left+$(window).width()*(0.1275)-30);
+			$($('.intermediatestep .double-bond.horizontal')[0]).css("top", $('.intermediatestep .animation .cytosol').position().top+em(12)+$(window).height()+24).css("left", $('.intermediatestep .animation .cytosol').position().left*(0.1275)-30);
 			$($('.intermediatestep .double-bond.horizontal')[0]).hide().removeClass("hidden").fadeIn(500);
-			$($('.intermediatestep .double-bond.horizontal')[1]).css("top", $('.intermediatestep .animation .cytosol').position().top+em(12)+$(window).height()+32).css("left", $('.intermediatestep .animation .cytosol').position().left+$(window).width()*(0.1275)-30);
+			$($('.intermediatestep .double-bond.horizontal')[1]).css("top", $('.intermediatestep .animation .cytosol').position().top+em(12)+$(window).height()+32).css("left", $('.intermediatestep .animation .cytosol').position().left*(0.1275)-30);
 			$($('.intermediatestep .double-bond.horizontal')[1]).hide().removeClass("hidden").fadeIn(500);
-			$($('.intermediatestep .single-bond.floating')[1]).css("top", $('.intermediatestep .animation .cytosol').position().top+em(12)+$(window).height()+60).css("left", $('.intermediatestep .animation .cytosol').position().left+$(window).width()*(0.1275)-62);
+			$($('.intermediatestep .single-bond.floating')[1]).css("top", $('.intermediatestep .animation .cytosol').position().top+em(12)+$(window).height()+60).css("left", $('.intermediatestep .animation .cytosol').position().left*(0.1275)-62);
 			$($('.intermediatestep .single-bond.floating')[1]).hide().removeClass("hidden").fadeIn(500);
-			$($('.intermediatestep .circle.carbon.floating')[1]).css("top", $('.intermediatestep .animation .cytosol').position().top+em(18)+$(window).height()).css("left", $('.intermediatestep .animation .cytosol').position().left+$(window).width()*(0.1275)-90);
+			$($('.intermediatestep .circle.carbon.floating')[1]).css("top", $('.intermediatestep .animation .cytosol').position().top+em(18)+$(window).height()).css("left", $('.intermediatestep .animation .cytosol').position().left*(0.1275)-90);
 			$($('.intermediatestep .circle.carbon.floating')[1]).hide().removeClass("hidden").fadeIn(500);
-			$($('.intermediatestep .circle.oxygen.floating')[2]).css("top", $('.intermediatestep .animation .cytosol').position().top+em(18)+$(window).height()).css("left", $('.intermediatestep .animation .cytosol').position().left+$(window).width()*(0.1275)-90+em(6));
+			$($('.intermediatestep .circle.oxygen.floating')[2]).css("top", $('.intermediatestep .animation .cytosol').position().top+em(18)+$(window).height()).css("left", $('.intermediatestep .animation .cytosol').position().left*(0.1275)-90+em(6));
 			$($('.intermediatestep .circle.oxygen.floating')[2]).hide().removeClass("hidden").fadeIn(500);
-			$($('.intermediatestep .double-bond.horizontal')[2]).css("top", $('.intermediatestep .animation .cytosol').position().top+em(18)+$(window).height()+24).css("left", $('.intermediatestep .animation .cytosol').position().left+$(window).width()*(0.1275)-30);
+			$($('.intermediatestep .double-bond.horizontal')[2]).css("top", $('.intermediatestep .animation .cytosol').position().top+em(18)+$(window).height()+24).css("left", $('.intermediatestep .animation .cytosol').position().left*(0.1275)-30);
 			$($('.intermediatestep .double-bond.horizontal')[2]).hide().removeClass("hidden").fadeIn(500);
-			$($('.intermediatestep .double-bond.horizontal')[3]).css("top", $('.intermediatestep .animation .cytosol').position().top+em(18)+$(window).height()+32).css("left", $('.intermediatestep .animation .cytosol').position().left+$(window).width()*(0.1275)-30);
+			$($('.intermediatestep .double-bond.horizontal')[3]).css("top", $('.intermediatestep .animation .cytosol').position().top+em(18)+$(window).height()+32).css("left", $('.intermediatestep .animation .cytosol').position().left*(0.1275)-30);
 			$($('.intermediatestep .double-bond.horizontal')[3]).hide().removeClass("hidden").fadeIn(500);
-			$($('.intermediatestep .single-bond.floating')[2]).css("top", $('.intermediatestep .animation .cytosol').position().top+em(18)+$(window).height()+60).css("left", $('.intermediatestep .animation .cytosol').position().left+$(window).width()*(0.1275)-62);
+			$($('.intermediatestep .single-bond.floating')[2]).css("top", $('.intermediatestep .animation .cytosol').position().top+em(18)+$(window).height()+60).css("left", $('.intermediatestep .animation .cytosol').position().left*(0.1275)-62);
 			$($('.intermediatestep .single-bond.floating')[2]).hide().removeClass("hidden").fadeIn(500);
-			$('.intermediatestep .circle.ch3.floating').css("top", $('.intermediatestep .animation .cytosol').position().top+em(24)+$(window).height()).css("left", $('.intermediatestep .animation .cytosol').position().left+$(window).width()*(0.1275)-90);
+			$('.intermediatestep .circle.ch3.floating').css("top", $('.intermediatestep .animation .cytosol').position().top+em(24)+$(window).height()).css("left", $('.intermediatestep .animation .cytosol').position().left*(0.1275)-90);
 			$('.intermediatestep .circle.ch3.floating').hide().removeClass("hidden").fadeIn(500);
-			IntermediateCounter = IntermediateCounter + 1;
+			$('.intermediatestep .circle, .intermediatestep .single-bond, .intermediatestep .double-bond').animate({left: "+=30%"});
+			IntermediateCounter = IntermediateCounter + 2;
 		} else if (IntermediateCounter == 2) {
 			$($('.intermediatestep .circle.oxygen.floating')[0]).tooltipster('hide');
 			$('.intermediatestep .circle, .intermediatestep .single-bond, .intermediatestep .double-bond').animate({left: "+="+$('.intermediatestep .animation .cytosol').width()}, 1000);
@@ -264,7 +267,7 @@ $(document).click(function() {
 			$($('.intermediatestep .circle.oxygen.floating')[1]).animate({top: "-=5em", left: "-=5em"});
 			$($('.intermediatestep .double-bond.horizontal')[0]).animate({top: "-=5em", left: "-=5em"});
 			$($('.intermediatestep .double-bond.horizontal')[1]).animate({top: "-=5em", left: "-=5em"}, function() {
-				$($('.intermediatestep .circle.oxygen.floating')[0]).tooltipster('content', 'CO₂');
+				$($('.intermediatestep .circle.oxygen.floating')[0]).tooltipster('content', 'COâ‚‚');
 				$($('.intermediatestep .circle.oxygen.floating')[0]).tooltipster('show');
 			});
 			IntermediateCounter = IntermediateCounter + 1;
@@ -371,52 +374,77 @@ $(document).click(function() {
 		if (ETCCounter == 0) {
 			$($('.ETC h1')[1]).html("NADH x 7 FADH<sub>2</sub> x 2");
 			$('.ETC .circle.electron').animate({top: $($('.ETC h1')[2]).position().top+$(window).height()+$(window).height()+$(window).height()}, 1).css("left", $($('.ETC h1')[2]).position().left).removeClass("hidden").animate({left: "+="+$($('.ETC h1')[2]).width()}, 2000);
-			//reallycoolidforsublime
+			$($('.ETC .hplus-wrapper .hplus')[i]).removeClass('hidden');
+			i = i + 1;
 			ETCCounter = ETCCounter + 1;
 		} else if (ETCCounter == 1) {
 			$($('.ETC h1')[1]).html("NADH x 6 FADH<sub>2</sub> x 2");
-			$('.ETC .circle.electron').css("left", $($('.ETC h1')[2]).position().left).animate({left: "+="+$($('.ETC h1')[2]).width()}, 2000);
-			//reallycoolidforsublime
+			$('.ETC .circle.electron').animate({left: $($('.ETC h1')[2]).position().left}, 1).animate({left: "+="+$($('.ETC h1')[2]).width()}, 2000);
+			$($('.ETC .hplus-wrapper .hplus')[i]).removeClass('hidden');
+			i = i + 1;
 			ETCCounter = ETCCounter + 1;
 		} else if (ETCCounter == 2) {
 			$($('.ETC h1')[1]).html("NADH x 5 FADH<sub>2</sub> x 2");
-			$('.ETC .circle.electron').css("left", $($('.ETC h1')[2]).position().left).animate({left: "+="+$($('.ETC h1')[2]).width()}, 2000);
-			//reallycoolidforsublime
+			$('.ETC .circle.electron').animate({left: $($('.ETC h1')[2]).position().left}, 1).animate({left: "+="+$($('.ETC h1')[2]).width()}, 2000);
+			$($('.ETC .hplus-wrapper .hplus')[i]).removeClass('hidden');
+			i = i + 1;
 			ETCCounter = ETCCounter + 1;
 		} else if (ETCCounter == 3) {
 			$($('.ETC h1')[1]).html("NADH x 4 FADH<sub>2</sub> x 2");
-			$('.ETC .circle.electron').css("left", $($('.ETC h1')[2]).position().left).animate({left: "+="+$($('.ETC h1')[2]).width()}, 2000);
-			//reallycoolidforsublime
+			$('.ETC .circle.electron').animate({left: $($('.ETC h1')[2]).position().left}, 1).animate({left: "+="+$($('.ETC h1')[2]).width()}, 2000);
+			$($('.ETC .hplus-wrapper .hplus')[i]).removeClass('hidden');
+			i = i + 1;
 			ETCCounter = ETCCounter + 1;
 		} else if (ETCCounter == 4) {
 			$($('.ETC h1')[1]).html("NADH x 3 FADH<sub>2</sub> x 2");
-			$('.ETC .circle.electron').css("left", $($('.ETC h1')[2]).position().left).animate({left: "+="+$($('.ETC h1')[2]).width()}, 2000);
-			//reallycoolidforsublime
+			$('.ETC .circle.electron').animate({left: $($('.ETC h1')[2]).position().left}, 1).animate({left: "+="+$($('.ETC h1')[2]).width()}, 2000);
+			$($('.ETC .hplus-wrapper .hplus')[i]).removeClass('hidden');
+			i = i + 1;
 			ETCCounter = ETCCounter + 1;
 		} else if (ETCCounter == 5) {
 			$($('.ETC h1')[1]).html("NADH x 2 FADH<sub>2</sub> x 2");
-			$('.ETC .circle.electron').css("left", $($('.ETC h1')[2]).position().left).animate({left: "+="+$($('.ETC h1')[2]).width()}, 2000);
-			//reallycoolidforsublime
+			$('.ETC .circle.electron').animate({left: $($('.ETC h1')[2]).position().left}, 1).animate({left: "+="+$($('.ETC h1')[2]).width()}, 2000);
+			$($('.ETC .hplus-wrapper .hplus')[i]).removeClass('hidden');
+			i = i + 1;
 			ETCCounter = ETCCounter + 1;
 		} else if (ETCCounter == 6) {
 			$($('.ETC h1')[1]).html("NADH x 1 FADH<sub>2</sub> x 2");
-			$('.ETC .circle.electron').css("left", $($('.ETC h1')[2]).position().left).animate({left: "+="+$($('.ETC h1')[2]).width()}, 2000);
-			//reallycoolidforsublime
+			$('.ETC .circle.electron').animate({left: $($('.ETC h1')[2]).position().left}, 1).animate({left: "+="+$($('.ETC h1')[2]).width()}, 2000);
+			$($('.ETC .hplus-wrapper .hplus')[i]).removeClass('hidden');
+			i = i + 1;
 			ETCCounter = ETCCounter + 1;
 		} else if (ETCCounter == 7) {
 			$($('.ETC h1')[1]).html("NADH x 0 FADH<sub>2</sub> x 2");
-			$('.ETC .circle.electron').css("left", $($('.ETC h1')[2]).position().left).animate({left: "+="+$($('.ETC h1')[2]).width()}, 2000);
-			//reallycoolidforsublime
+			$('.ETC .circle.electron').animate({left: $($('.ETC h1')[2]).position().left}, 1).animate({left: "+="+$($('.ETC h1')[2]).width()}, 2000);
+			$($('.ETC .hplus-wrapper .hplus')[i]).removeClass('hidden');
+			i = i + 1;
 			ETCCounter = ETCCounter + 1;
 		} else if (ETCCounter == 8) {
 			$($('.ETC h1')[1]).html("NADH x 0 FADH<sub>2</sub> x 1");
-			$('.ETC .circle.electron').css("left", $($('.ETC h1')[2]).position().left).animate({left: "+="+$($('.ETC h1')[2]).width()}, 2000);
-			//reallycoolidforsublime
+			$('.ETC .circle.electron').animate({left: $($('.ETC h1')[2]).position().left}, 1).animate({left: "+="+$($('.ETC h1')[2]).width()}, 2000);
+			$($('.ETC .hplus-wrapper .hplus')[i]).removeClass('hidden');
+			i = i + 1;
 			ETCCounter = ETCCounter + 1;
-		} else if (ETCCounter == 8) {
+		} else if (ETCCounter == 9) {
 			$($('.ETC h1')[1]).html("NADH x 0 FADH<sub>2</sub> x 0");
-			$('.ETC .circle.electron').css("left", $($('.ETC h1')[2]).position().left).animate({left: "+="+$($('.ETC h1')[2]).width()}, 2000);
-			//reallycoolidforsublime
+			$('.ETC .circle.electron').animate({left: $($('.ETC h1')[2]).position().left}, 1).animate({left: "+="+$($('.ETC h1')[2]).width()}, 2000);
+			$($('.ETC .hplus-wrapper .hplus')[i]).removeClass('hidden');
+			i = i + 1;
+			ETCCounter = ETCCounter + 1;
+		} else if (ETCCounter == 10) {
+			$('.ETC .circle.electron').hide();
+			$('.ETC .hplus-wrapper .hplus').addClass("floating").animate({left: $('.atp-synthase').position().left+$('.atp-synthase').width()/2, top: $('.atp-synthase').position().top+$('.atp-synthase').height()/2+$(window).height()+$(window).height()+$(window).height()}, 1);
+			i = i + 1;
+			ETCCounter = ETCCounter + 1;
+		} else if (ETCCounter == 11) {
+			$('.ETC .circle.hplus').hide();
+			$('.circle.ATP32').removeClass("hidden").animate({left: $('.atp-synthase').position().left, top: $('.atp-synthase').position().top + $(window).height() + $(window).height() + $(window).height()});
+			i = i + 1;
+			ETCCounter = ETCCounter + 1;
+		} else if (ETCCounter == 12) {
+			$('.ETC .circle.hplus').hide();
+			$('.circle.ATP32').animate({top: "+=15%"});
+			i = i + 1;
 			ETCCounter = ETCCounter + 1;
 		}
 	}
